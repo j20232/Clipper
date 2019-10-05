@@ -50,7 +50,7 @@ function separate_subjects(subjects){
     names = subject.split(" (");
     name = names[0];
     extension = names[1].replace(")", "");
-    text += "- **[" + extension + "]**: " + name + "\n";
+    text += "- **:" + extension + "**: " + name + "\n";
   });
   return text;
 }
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       abstract = reshape_abstract(abstract);
       info = [info, abstract + "\n"].join('\n');
 
-      authors = $dom.find('div.authors').text().split('Authors:')[1];
+      authors = $dom.find('div.authors')["0"].innerHTML.split("Authors:")[1];
       authors = authors.replace(/\n/g, '');
       authors = separate_authors(authors);
       info = [info, "## Author\n", authors].join('\n');
