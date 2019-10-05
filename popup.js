@@ -50,7 +50,7 @@ function separate_subjects(subjects){
     names = subject.split(" (");
     name = names[0];
     extension = names[1].replace(")", "");
-    text += "- **:" + extension + "**: " + name + "\n";
+    text += "- :**" + extension + "**: " + name + "\n";
   });
   return text;
 }
