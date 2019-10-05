@@ -1,4 +1,4 @@
-ARXIV_URL = 'https://arxiv.org/*';
+ARXIV_URL = 'https://arxiv.org/abs/*';
 
 function getCurrentTabUrl(callback) {
   var queryInfo = {
@@ -14,7 +14,7 @@ function getCurrentTabUrl(callback) {
       console.assert(typeof url == 'string', 'tab.url should be a string');
       callback(url);
     } else {
-      $('#result').text('not arXiv!');
+      $('#result').text('Not abs page!');
     }
   });
 }
@@ -34,29 +34,90 @@ function copyToClipboard(text) {
   document.body.removeChild(input);
 };
 
+function separate_authors(authors){
+  ary = authors.split(", ");
+  text = "";
+  ary.forEach(function(author){
+    text += "- " + author + "\n";
+  });
+  return text;
+}
+
+function separate_subjects(subjects){
+  ary = subjects.split("; ");
+  text = "";
+  ary.forEach(function(subject){
+    names = subject.split(" (");
+    name = names[0];
+    extension = names[1].replace(")", "");
+    text += "- **[" + extension + "]**: " + name + "\n";
+  });
+  return text;
+}
+
+function reshape_abstract(abstract){
+  abstract = abstract.split("Abstract:  ")[1];
+  abstract = abstract.replace(/\r?\n/g, '');
+  return abstract;
+}
+
+function add_link_to_comment(comment){
+  text = comment["0"].innerHTML;
+  return text;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
     chrome.tabs.executeScript({
       code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
     }, (results) => {
       var $dom = $($.parseHTML(results[0]));
-      title = $dom.find('h1.title').text().split('Title:')[1];
+
+      // title = $dom.find('h1.title').text().split('Title:')[1];
+      info = ["\n## Summary\n\n", "## Abstract [quoted]\n"].join('\n');
+
+      abstract = $dom.find("blockquote.abstract.mathjax").text();
+      abstract = reshape_abstract(abstract);
+      info = [info, abstract + "\n"].join('\n');
+
       authors = $dom.find('div.authors').text().split('Authors:')[1];
       authors = authors.replace(/\n/g, '');
-      comment = $dom.find('div.metatable').find('.comments').text();
-      if (comment != '') {
-        info = [title, authors, comment, url].join('\n');
-      } else {
-        info = [title, authors, url].join('\n');
+      authors = separate_authors(authors);
+      info = [info, "## Author\n", authors].join('\n');
+
+      info = [info, "## Journal/Conference"].join('\n');
+      journal = $dom.find('div.metatable').find(".jref").text();
+      if(journal != '' && journal != undefined && journal.length != 0){
+        info = [info, journal].join('\n');
+      }else{
+        info += "\n";
+      }
+      info += "\n";
+
+      subjects = $dom.find('div.metatable').find('.subjects').text();
+      if(subjects != '' && subjects != undefined && subjects.length != 0){
+        subjects = subjects.trim();
+        subjects = separate_subjects(subjects);
+        info = [info, "## Subjects\n", subjects].join('\n');
       }
 
+      comment = $dom.find('div.metatable').find('.comments');
+      if(comment != '' && comment != undefined && comment.length != 0){
+        comment = add_link_to_comment(comment);
+        info = [info, "## Comment", comment + "\n"].join('\n');
+      }
+
+      info = [info, "## Link\n", "- arXiv: " + url].join('\n');
+
+      info += "\n";
+
       copyToClipboard(info);
-      $('#result').text('copied!');
+      $('#result').text('Copied!');
 
       // hide popup automatically
       setTimeout(function () {
         window.close();
-      }, 3000);
+      }, 300000);
     });
   });
 });
