@@ -1,9 +1,11 @@
 ## ⛵️About Clipper
 Clipper is a Chrome extension to copy the arXiv metadata.
 
-You can easily copy the data by only one click!
+You can easily copy the data by only one click!  
 
 Now developing...🐢
+
+**DON'T USE THIS TOOL FOR COMMERCIAL USAGE**
 
 ## 🙊TODO
 - Make the format customizable
