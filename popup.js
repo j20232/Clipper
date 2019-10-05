@@ -61,10 +61,6 @@ function reshape_abstract(abstract){
   return abstract;
 }
 
-function add_link_to_comment(comment){
-  text = comment["0"].innerHTML;
-  return text;
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
@@ -103,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       comment = $dom.find('div.metatable').find('.comments');
       if(comment != '' && comment != undefined && comment.length != 0){
-        comment = add_link_to_comment(comment);
+        comment = comment["0"].innerHTML;
         info = [info, "## Comment", comment + "\n"].join('\n');
       }
 
