@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // hide popup automatically
       setTimeout(function () {
         window.close();
-      }, 300000);
+      }, 3000);
     });
   });
 });
