@@ -5,7 +5,7 @@ You can easily copy the data by only one click!
 
 Enjoy survey!📖
 
-**DON'T USE THIS TOOL FOR COMMERCIAL.**
+**DON'T USE THIS TOOL FOR COMMERCIAL USAGE.**
 
 If this tool violates any copyrights, I'll remove it.
 
