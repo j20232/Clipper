@@ -1,16 +1,14 @@
-## arXiv clip
+## 🦑About
+Chrome extension to copy the arXiv metadata
 
-<img src="https://github.com/jojonki/arxiv-clip/blob/master/screenshot.png?raw=true" width="500">
+Now developing...🐢
 
-You can easily clip paper's information by just clicking the icon!
+## 🙊TODO
+- Make the format customizable
+- Enable to copy the data from other websites
+  - IEEE explore
+  - ACM Digital Library
 
-## Install
-[chrome web store](https://chrome.google.com/webstore/detail/arxiv-clip/enkadffnndphdjnpjamejdjlcbkkbpmp)
-
-## Clip sample
-```
-Context-Aware Dialog Re-Ranking for Task-Oriented Dialog Systems
-Junki Ohmura, Maxine Eskenazi    
-Accepted in IEEE SLT 2018. 8 pages, 3 figures
-https://arxiv.org/abs/1811.11430
-```
+## 🙇‍♂️Original Version
+This repository is forked from https://github.com/jojonki/arxiv-clip.  
+Thank you very much!
