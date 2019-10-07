@@ -10,7 +10,7 @@ Enjoy survey!📖
 If this tool violates any copyrights, I'll remove it.
 
 ## Current Format
-- Sample: https://arxiv.org/abs/1910.01195
+- Sample: https://arxiv.org/abs/1910.01546
 
 ```
 
