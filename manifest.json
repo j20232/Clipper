@@ -1,10 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Clipper",
-  "short_:name": "clipper",
   "description": "",
   "version": "1.0",
-  "background": { "scripts": ["background.js"] },
+  "background": {
+      "scripts": [
+          "jquery-3.3.1.slim.min.js",
+          "background.js"
+      ]
+  },
   "page_action": {
       "default_icon": {
           "16": "icon.png",
@@ -22,7 +26,12 @@
       "128" : "icon.png"
   },
   "permissions": [
-		"tabs",
+        "tabs",
+        "storage",
 		"https://arxiv.org/abs/"
-  ]
+  ],
+  "options_ui": {
+      "page": "options.html",
+      "chrome_style": true
+  }
 }

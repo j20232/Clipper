@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chrome Extension Options</title>
+  <style type="text/css">
+    body {padding: 10px;}
+  </style>
+</head>
+
+<body>
+    <p>
+        Format:
+        <select id="format">
+            <option value="github">GitHub Issue</option>
+            <option value="scrapbox">ScrapBox</option>
+        </select>
+    </p>
+
+    <p>
+        Custom Content: </br>
+        <ul>
+            <li>
+                <label>
+                    <input type="checkbox" id="summary_check"><b>Summary:</b>
+                </label>
+                <input type="text" name="othertext" id="summary_text">
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="abstract_check"><b>Abstract:</b>
+                </label>
+                <input type="text" name="othertext" id="abstract_text">
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="author_check"><b>Author:</b>
+                </label>
+                <input type="text" name="othertext" id="author_text">
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="journal_check"><b>Journal/Conf.:</b>
+                </label>
+                <input type="text" name="othertext" id="journal_text">
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="subject_check"><b>Subjects:</b>
+                </label>
+                <input type="text" name="othertext" id="subject_text">
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="comment_check"><b>Comment:</b>
+                </label>
+                <input type="text" name="othertext" id="comment_text">
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="link_check"><b>Link:</b>
+                </label>
+                <input type="text" name="othertext" id="link_text">
+            </li>
+        </ul>
+    </p>
+
+    <button id="save">Save</button>
+    <p>
+        <div id="status">Status: </div>
+    </p>
+
+    <script src="options.js"></script>
+</body>
+</html>
