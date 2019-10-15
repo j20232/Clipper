@@ -65,7 +65,7 @@ function set_abstract(info, items, dom){
   info = set_title(info, items.abstract_text, items);
   abstract = dom.find("blockquote.abstract.mathjax").text();
   abstract = abstract.split("Abstract:  ")[1];
-  abstract = abstract.replace(/\r?\n/g, '');
+  abstract = abstract.replace(/\r?\n/g, ' ').trim();
   return [info, abstract + "\n"].join('\n');
 }
 
@@ -82,6 +82,7 @@ function set_author(info, items, dom){
   if(!items.author_check) return info;
   info = set_title(info, items.author_text, items);
   authors = dom.find('div.authors')["0"].innerHTML.split("Authors:")[1];
+  authors = authors.replace(/<\/span>/g,'');
   authors = authors.replace(/\n/g, '');
   authors = separate_authors(authors, items);
   return [info, authors].join('\n');
@@ -96,7 +97,6 @@ function set_journal(info, items, dom){
   }else{
     info += "\n";
   }
-  info += "\n";
   return info;
 }
 
