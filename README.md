@@ -1,15 +1,15 @@
-## ⛵️About Clipper
+## ⛵️ About Clipper
 Clipper is a Chrome extension to copy the arXiv metadata.
 
 You can easily copy the data by only one click!
 
 Enjoy survey!📖
 
-**DON'T USE THIS TOOL FOR COMMERCIAL USAGE.**
+🚫 **DON'T USE THIS TOOL FOR COMMERCIAL USAGE.** 🚫
 
 If this tool violates any copyrights, I'll remove it.
 
-## Current Format
+## 🐣 Current Format
 - Sample: https://arxiv.org/abs/1910.01546
 
 ```
@@ -48,11 +48,11 @@ In this contribution, we design, implement and evaluate the pedagogicalbenefits 
 
 ```
 
-## 🙊TODO
+## 🙊 TODO
 - Make the format customizable
 - Enable to copy the data from other websites
 
 
-## 🙇‍♂️Original Version
+## 🙇‍♂️ Original Version
 This repository is forked from https://github.com/jojonki/arxiv-clip.  
 **Thank you very much!**
