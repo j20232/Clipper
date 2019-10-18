@@ -79,6 +79,7 @@ function separate_authors(authors, items){
 }
 
 function set_author(info, items, dom){
+  console.log(items.author_check);
   if(!items.author_check) return info;
   info = set_title(info, items.author_text, items);
   authors = dom.find('div.authors')["0"].innerHTML.split("Authors:")[1];
